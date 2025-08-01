@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Switch } from "@/components/ui/switch"
 import { useTheme } from "@/components/ui/theme-provider"
 import { GameButton } from "@/components/GameButton"
+import { Settings as SettingsIcon, Palette, Volume2, Bell, BookOpen, AlertTriangle, User } from "lucide-react"
 
 export default function Settings() {
   const { theme, setTheme } = useTheme()
@@ -9,7 +10,7 @@ export default function Settings() {
   const settingsCategories = [
     {
       title: "Appearance",
-      icon: "🎨",
+      icon: <Palette className="w-6 h-6 text-purple-600" />,
       settings: [
         {
           label: "Dark Mode",
@@ -29,7 +30,7 @@ export default function Settings() {
     },
     {
       title: "Audio",
-      icon: "🔊",
+      icon: <Volume2 className="w-6 h-6 text-blue-600" />,
       settings: [
         {
           label: "Sound Effects",
@@ -49,7 +50,7 @@ export default function Settings() {
     },
     {
       title: "Notifications",
-      icon: "🔔",
+      icon: <Bell className="w-6 h-6 text-green-600" />,
       settings: [
         {
           label: "Daily Reminders",
@@ -69,7 +70,7 @@ export default function Settings() {
     },
     {
       title: "Learning",
-      icon: "📚",
+      icon: <BookOpen className="w-6 h-6 text-cyan-600" />,
       settings: [
         {
           label: "Difficulty Auto-Adjust",
@@ -90,11 +91,11 @@ export default function Settings() {
   ]
 
   return (
-    <div className="min-h-screen bg-background p-4 space-y-6">
+    <div className="min-h-screen bg-background p-4 pb-24 space-y-6">
       {/* Header */}
       <div className="space-y-4">
         <div className="flex items-center space-x-3">
-          <span className="text-4xl">⚙️</span>
+          <SettingsIcon className="w-10 h-10 text-primary" />
           <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-cyan-600 bg-clip-text text-transparent">
             Settings
           </h1>
@@ -109,7 +110,7 @@ export default function Settings() {
         <CardHeader>
           <CardTitle className="flex items-center space-x-3">
             <div className="w-12 h-12 rounded-full bg-gradient-button flex items-center justify-center">
-              <span className="text-2xl">🧙‍♂️</span>
+              <User className="w-6 h-6 text-white" />
             </div>
             <div>
               <div className="text-xl font-bold">Explorer</div>
@@ -138,7 +139,7 @@ export default function Settings() {
           <Card key={category.title} className="bg-gradient-card border-2 border-secondary/50">
             <CardHeader>
               <CardTitle className="flex items-center space-x-3">
-                <span className="text-2xl">{category.icon}</span>
+                {category.icon}
                 <span>{category.title}</span>
               </CardTitle>
             </CardHeader>
@@ -167,7 +168,7 @@ export default function Settings() {
       <Card className="border-2 border-red-200 dark:border-red-800">
         <CardHeader>
           <CardTitle className="flex items-center space-x-3 text-red-600">
-            <span className="text-2xl">⚠️</span>
+            <AlertTriangle className="w-6 h-6" />
             <span>Danger Zone</span>
           </CardTitle>
         </CardHeader>

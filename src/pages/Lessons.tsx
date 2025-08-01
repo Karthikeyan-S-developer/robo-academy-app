@@ -1,6 +1,7 @@
 import { GameCard } from "@/components/GameCard"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
+import { BookOpen, Bot, Brain, Smartphone, Mic, Eye, Dna, Scale, Rocket, BarChart3, Search } from "lucide-react"
 
 export default function Lessons() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -10,7 +11,7 @@ export default function Lessons() {
       id: 1,
       title: "What is AI?",
       description: "Discover the basics of Artificial Intelligence and how it helps us every day!",
-      icon: "🤖",
+      icon: <Bot className="w-6 h-6 text-blue-600" />,
       difficulty: "Beginner",
       duration: "15 min",
       progress: 100,
@@ -21,7 +22,7 @@ export default function Lessons() {
       id: 2,
       title: "Machine Learning Basics",
       description: "Learn how computers can learn patterns and make predictions!",
-      icon: "🧠",
+      icon: <Brain className="w-6 h-6 text-purple-600" />,
       difficulty: "Beginner",
       duration: "20 min",
       progress: 100,
@@ -32,7 +33,7 @@ export default function Lessons() {
       id: 3,
       title: "AI in Daily Life",
       description: "Explore how AI is used in apps, games, and devices around you!",
-      icon: "📱",
+      icon: <Smartphone className="w-6 h-6 text-green-600" />,
       difficulty: "Beginner",
       duration: "18 min",
       progress: 65,
@@ -43,7 +44,7 @@ export default function Lessons() {
       id: 4,
       title: "Voice Assistants",
       description: "Understand how Siri, Alexa, and other voice assistants work!",
-      icon: "🎤",
+      icon: <Mic className="w-6 h-6 text-pink-600" />,
       difficulty: "Intermediate",
       duration: "25 min",
       progress: 0,
@@ -54,7 +55,7 @@ export default function Lessons() {
       id: 5,
       title: "Computer Vision",
       description: "Learn how computers can 'see' and recognize images!",
-      icon: "👁️",
+      icon: <Eye className="w-6 h-6 text-cyan-600" />,
       difficulty: "Intermediate",
       duration: "30 min",
       progress: 0,
@@ -65,7 +66,7 @@ export default function Lessons() {
       id: 6,
       title: "Neural Networks",
       description: "Discover how AI mimics the human brain to solve problems!",
-      icon: "🧬",
+      icon: <Dna className="w-6 h-6 text-orange-600" />,
       difficulty: "Advanced",
       duration: "35 min",
       progress: 0,
@@ -76,7 +77,7 @@ export default function Lessons() {
       id: 7,
       title: "AI Ethics",
       description: "Learn about responsible AI development and usage!",
-      icon: "⚖️",
+      icon: <Scale className="w-6 h-6 text-indigo-600" />,
       difficulty: "Intermediate",
       duration: "20 min",
       progress: 0,
@@ -87,7 +88,7 @@ export default function Lessons() {
       id: 8,
       title: "Future of AI",
       description: "Explore exciting possibilities and careers in AI!",
-      icon: "🚀",
+      icon: <Rocket className="w-6 h-6 text-red-600" />,
       difficulty: "Advanced",
       duration: "40 min",
       progress: 0,
@@ -111,11 +112,11 @@ export default function Lessons() {
   }
 
   return (
-    <div className="min-h-screen bg-background p-4 space-y-6">
+    <div className="min-h-screen bg-background p-4 pb-24 space-y-6">
       {/* Header */}
       <div className="space-y-4">
         <div className="flex items-center space-x-3">
-          <span className="text-4xl">📚</span>
+          <BookOpen className="w-10 h-10 text-primary" />
           <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-cyan-600 bg-clip-text text-transparent">
             AI Learning Modules
           </h1>
@@ -127,19 +128,20 @@ export default function Lessons() {
 
       {/* Search */}
       <div className="relative">
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
         <Input
           type="text"
-          placeholder="Search for lessons... 🔍"
+          placeholder="Search for lessons..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="h-12 text-base rounded-xl border-2 transition-all duration-300 focus:border-primary"
+          className="h-12 text-base rounded-xl border-2 transition-all duration-300 focus:border-primary pl-10"
         />
       </div>
 
       {/* Progress Overview */}
       <div className="bg-gradient-card rounded-2xl p-6 border-2 border-primary/20">
         <h2 className="text-xl font-bold mb-4 flex items-center space-x-2">
-          <span>📊</span>
+          <BarChart3 className="w-6 h-6 text-primary" />
           <span>Your Progress</span>
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -184,7 +186,10 @@ export default function Lessons() {
               <span className={`px-2 py-1 rounded-full font-semibold ${getDifficultyColor(lesson.difficulty)}`}>
                 {lesson.difficulty}
               </span>
-              <span className="text-muted-foreground">⏱️ {lesson.duration}</span>
+              <span className="text-muted-foreground flex items-center space-x-1">
+                <span>⏱️</span>
+                <span>{lesson.duration}</span>
+              </span>
             </div>
           </GameCard>
         ))}
@@ -192,7 +197,7 @@ export default function Lessons() {
 
       {filteredLessons.length === 0 && (
         <div className="text-center py-12">
-          <div className="text-6xl mb-4">🔍</div>
+          <Search className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
           <h3 className="text-xl font-semibold mb-2">No lessons found</h3>
           <p className="text-muted-foreground">
             Try adjusting your search terms to find the perfect lesson!

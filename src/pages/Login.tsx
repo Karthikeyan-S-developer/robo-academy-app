@@ -4,6 +4,7 @@ import { GameButton } from "@/components/GameButton"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Rocket, Loader2 } from "lucide-react"
 import heroBackground from "@/assets/hero-background.jpg"
 
 export default function Login() {
@@ -43,7 +44,7 @@ export default function Login() {
       <Card className="w-full max-w-md bg-gradient-card border-2 border-primary/20 shadow-2xl animate-scale-in">
         <CardHeader className="text-center space-y-4">
           <div className="w-20 h-20 mx-auto bg-gradient-button rounded-2xl flex items-center justify-center animate-bounce-in">
-            <span className="text-3xl">🚀</span>
+            <Rocket className="w-10 h-10 text-white" />
           </div>
           <CardTitle className="text-3xl font-bold bg-gradient-to-r from-primary to-cyan-600 bg-clip-text text-transparent">
             AI Adventure
@@ -94,11 +95,14 @@ export default function Login() {
             >
               {isLoading ? (
                 <div className="flex items-center space-x-2">
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  <Loader2 className="w-5 h-5 animate-spin" />
                   <span>Starting Adventure...</span>
                 </div>
               ) : (
-                "Begin Adventure! 🎮"
+                <div className="flex items-center space-x-2">
+                  <Rocket className="w-5 h-5" />
+                  <span>Begin Adventure!</span>
+                </div>
               )}
             </GameButton>
           </form>

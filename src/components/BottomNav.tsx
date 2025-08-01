@@ -1,8 +1,9 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import { cn } from "@/lib/utils"
+import { Home, BookOpen, Gamepad2, Settings } from "lucide-react"
 
 interface NavItemProps {
-  icon: string
+  icon: React.ReactNode
   label: string
   path: string
   isActive: boolean
@@ -20,7 +21,7 @@ function NavItem({ icon, label, path, isActive, onClick }: NavItemProps) {
           : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
       )}
     >
-      <span className="text-2xl">{icon}</span>
+      <div className="w-6 h-6">{icon}</div>
       <span className="text-xs font-medium">{label}</span>
     </button>
   )
@@ -31,10 +32,10 @@ export function BottomNav() {
   const navigate = useNavigate()
 
   const navItems = [
-    { icon: "🏠", label: "Home", path: "/dashboard" },
-    { icon: "📚", label: "Lessons", path: "/lessons" },
-    { icon: "🎮", label: "Practice", path: "/practice" },
-    { icon: "⚙️", label: "Settings", path: "/settings" }
+    { icon: <Home className="w-6 h-6" />, label: "Home", path: "/dashboard" },
+    { icon: <BookOpen className="w-6 h-6" />, label: "Lessons", path: "/lessons" },
+    { icon: <Gamepad2 className="w-6 h-6" />, label: "Practice", path: "/practice" },
+    { icon: <Settings className="w-6 h-6" />, label: "Settings", path: "/settings" }
   ]
 
   // Don't show on login page

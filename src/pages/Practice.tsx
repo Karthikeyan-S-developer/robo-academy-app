@@ -1,5 +1,6 @@
 import { GameCard } from "@/components/GameCard"
 import { GameButton } from "@/components/GameButton"
+import { Gamepad2, BarChart3, Star, Target, Rocket, Brain, Eye, Bot, Puzzle, Mic, TreePine } from "lucide-react"
 
 export default function Practice() {
   const practiceActivities = [
@@ -7,7 +8,7 @@ export default function Practice() {
       id: 1,
       title: "AI Quiz Challenge",
       description: "Test your knowledge with fun multiple-choice questions!",
-      icon: "🧠",
+      icon: <Brain className="w-6 h-6 text-purple-600" />,
       type: "Quiz",
       difficulty: "Easy",
       points: 50,
@@ -17,7 +18,7 @@ export default function Practice() {
       id: 2,
       title: "Image Recognition Game",
       description: "Help train an AI to recognize different objects!",
-      icon: "👁️",
+      icon: <Eye className="w-6 h-6 text-cyan-600" />,
       type: "Interactive",
       difficulty: "Medium",
       points: 100,
@@ -27,7 +28,7 @@ export default function Practice() {
       id: 3,
       title: "Chatbot Builder",
       description: "Create your own simple chatbot with drag-and-drop!",
-      icon: "🤖",
+      icon: <Bot className="w-6 h-6 text-green-600" />,
       type: "Builder",
       difficulty: "Medium",
       points: 150,
@@ -37,7 +38,7 @@ export default function Practice() {
       id: 4,
       title: "Pattern Matching",
       description: "Discover patterns like machine learning algorithms do!",
-      icon: "🧩",
+      icon: <Puzzle className="w-6 h-6 text-orange-600" />,
       type: "Puzzle",
       difficulty: "Easy",
       points: 75,
@@ -47,7 +48,7 @@ export default function Practice() {
       id: 5,
       title: "Voice Command Training",
       description: "Teach an AI to understand voice commands!",
-      icon: "🎤",
+      icon: <Mic className="w-6 h-6 text-pink-600" />,
       type: "Interactive",
       difficulty: "Hard",
       points: 200,
@@ -57,7 +58,7 @@ export default function Practice() {
       id: 6,
       title: "Decision Tree Adventure",
       description: "Navigate through an AI decision-making adventure!",
-      icon: "🌳",
+      icon: <TreePine className="w-6 h-6 text-green-700" />,
       type: "Adventure",
       difficulty: "Medium",
       points: 125,
@@ -90,7 +91,7 @@ export default function Practice() {
       {/* Header */}
       <div className="space-y-4">
         <div className="flex items-center space-x-3">
-          <span className="text-4xl">🎮</span>
+          <Gamepad2 className="w-10 h-10 text-primary" />
           <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-cyan-600 bg-clip-text text-transparent">
             Practice Arena
           </h1>
@@ -103,7 +104,7 @@ export default function Practice() {
       {/* Stats Overview */}
       <div className="bg-gradient-card rounded-2xl p-6 border-2 border-primary/20">
         <h2 className="text-xl font-bold mb-4 flex items-center space-x-2">
-          <span>📊</span>
+          <BarChart3 className="w-6 h-6 text-primary" />
           <span>Practice Stats</span>
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -131,7 +132,7 @@ export default function Practice() {
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-xl font-bold flex items-center space-x-2">
-              <span>⭐</span>
+              <Star className="w-6 h-6 text-yellow-600" />
               <span>Daily Challenge</span>
             </h2>
             <p className="text-muted-foreground mt-1">
@@ -147,7 +148,7 @@ export default function Practice() {
       {/* Practice Activities */}
       <div className="space-y-4">
         <h2 className="text-2xl font-bold flex items-center space-x-2">
-          <span>🎯</span>
+          <Target className="w-6 h-6 text-primary" />
           <span>Practice Activities</span>
         </h2>
         
@@ -185,7 +186,7 @@ export default function Practice() {
 
       {/* Coming Soon */}
       <div className="bg-gradient-card rounded-2xl p-6 border-2 border-secondary/50 text-center">
-        <div className="text-4xl mb-4">🚀</div>
+        <Rocket className="w-16 h-16 mx-auto mb-4 text-primary" />
         <h3 className="text-xl font-bold mb-2">More Activities Coming Soon!</h3>
         <p className="text-muted-foreground mb-4">
           We're working on exciting new practice activities for you to explore!
